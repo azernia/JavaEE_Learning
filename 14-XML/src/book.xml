@@ -1,0 +1,19 @@
+<!--
+	XML大小写敏感，属性值要用""，标签时成对的且要正确嵌套
+-->
+<!-- 声明信息 -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- xml有且只要一个根元素 -->
+<!-- 根标签 -->
+<books>
+	<book id="1">
+		<name>Java</name>
+		<author>张三</author>
+		<price>50</price>
+	</book>
+	<book id="2">
+		<name>C</name>
+		<author>李四</author>
+		<price>50</price>
+	</book>
+</books>
