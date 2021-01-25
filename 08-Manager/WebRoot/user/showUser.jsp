@@ -1,4 +1,6 @@
-<%@ page language="java" import="java.util.*,com.rui.pojo.User" pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" import="java.util.*,com.rui.pojo.User" pageEncoding="UTF-8"%> --%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -63,7 +65,7 @@ $(document).ready(function(){
         </tr>
         </thead>
         <tbody>
-        <%
+        <%-- <%
         	List<User> list = (ArrayList<User>)request.getAttribute("lu");
         	for(User u : list) {
         %>
@@ -79,7 +81,17 @@ $(document).ready(function(){
         <td><%=u.getAge() %></td>
         <td><%=u.getBirthday() %></td>
         </tr> 
-        <%} %>
+        <%} %> --%>
+        <c:forEach items="${lu }" var="u">
+        	<tr>
+	        <td>${u.uid }</td>
+	        <td>${u.uname }</td>
+	        <td>${u.pwd }</td>
+	        <td>${u.sex=="1"?'男':'女'}</td>
+	        <td>${u.age }</td>
+	        <td>${u.birthday}</td>
+	        </tr> 
+        </c:forEach>
         </tbody>
     </table>
   

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -44,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		<span class="systemlogo"></span>
 		<br />
-		<%
+		<%-- <%
 			Object obj = request.getAttribute("flag");
 			if(obj != null) {
 		%>
@@ -73,7 +74,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </div>
     <%}
     	session.removeAttribute("reg");
-    %>
+    %> --%>
+    <c:choose>
+    	<c:when test="${flag==0 }">
+    		<div style="text-align: center;">
+				<span style="font-size: 15px;color: darkred;font-weight: bold;">用户名或密码错误</span>
+			</div>
+    	</c:when>
+    	<c:when test="${flag==1 }">
+    		<div style="text-align: center;">
+				<span style="font-size: 15px;color: darkred;font-weight: bold;">密码修改成功</span>
+			</div>
+    	</c:when>
+    	<c:when test="${flag==2 }">
+    		<div style="text-align: center;">
+				<span style="font-size: 15px;color: darkred;font-weight: bold;">注册成功</span>
+			</div>
+    	</c:when>
+    </c:choose>
+    <c:remove var="flag" scope="session" />
 		<div class="loginbox loginbox3">
 			<form action="user" method="post">
 			<input type="hidden" name="oper" value="login" />

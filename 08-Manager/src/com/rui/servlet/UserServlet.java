@@ -92,7 +92,7 @@ public class UserServlet extends HttpServlet {
 		if(index>0){
 			//获取session
 			HttpSession hs=req.getSession();
-			hs.setAttribute("reg", "true");
+			hs.setAttribute("flag", 2);
 			//重定向
 			resp.sendRedirect("/mg/login.jsp");
 		}
@@ -112,7 +112,7 @@ public class UserServlet extends HttpServlet {
 		int index = us.userChangePwdService(newPwd, uid);
 		if(index > 0) {
 			HttpSession hs = req.getSession();
-			hs.setAttribute("pwd", "true");
+			hs.setAttribute("flag", 1);
 			resp.sendRedirect("/mg/login.jsp");
 		}
 	}
