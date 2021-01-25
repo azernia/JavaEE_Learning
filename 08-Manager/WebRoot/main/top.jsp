@@ -43,7 +43,9 @@ $(function(){
     </ul>
      
     <div class="user">
-    <span><%=((User)session.getAttribute("user")).getUname()%></span>
+    <%-- <span><%=((User)session.getAttribute("user")).getUname()%></span> --%>
+    <span>${sessionScope.user.uname }</span>
+    <span>当前在线人数:${applicationScope.count}</span>
     </div>    
     
     </div>
